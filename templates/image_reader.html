@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+
+    <div class="container">
+      <div class="row">
+          <h2>Select a QR image</h2>
+          
+          <form method="post" action="{{ url_for('upload_file')}}" enctype="multipart/form-data">
+              <dl>
+                  <p>
+                      <input type="file" name="file" class="form-control" autocomplete="off" required>
+                  </p>
+              </dl>
+              <p>
+                  <input type="submit" value="Submit" class="btn btn-info">
+              </p>
+          </form>
+
+
+  
+        
+          <p>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+        </p>
+        {% if filename %}
+            <div>
+                <img src="{{ url_for('display_image', filename=filename) }}">
+                <h1>{{filename}}</h1>
+                <h1>{{qr_text}}</h1>
+            </div>
+        {% endif %}
+      </div>
+      </div>
+
+      <body style="background-color:#ebf8ff">
+        
+        
+        {%endblock%}
+
+        

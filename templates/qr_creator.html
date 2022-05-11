@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+
+    <h1>Qr Generator</h1>
+    <br/>
+    <form method = "POST">
+            
+            {{form.hidden_tag()}}
+            {{form.data.label(class="form-label")}}
+            {{form.data(class="form-control")}}
+            
+            
+
+            <br/>
+            {{form.submit(class="btn btn-primary")}}
+    </form>
+    <br/>
+    
+{%endblock%}
